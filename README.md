@@ -86,8 +86,8 @@ both frontends and the Rust server, so Rust, Bun, and FFmpeg do not need to be i
 on the host for this setup.
 
 ```sh
-git clone https://github.com/v-giorgetti/radio-placeholder.git
-cd radio-placeholder
+git clone https://github.com/v-giorgetti/radio.git
+cd radio
 cp infra/.env.example infra/.env
 ```
 

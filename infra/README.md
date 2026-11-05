@@ -21,8 +21,8 @@ longer than later builds because dependencies and compilers are cached.
 ## First deployment
 
 ```sh
-git clone https://github.com/v-giorgetti/radio-placeholder.git
-cd radio-placeholder
+git clone https://github.com/v-giorgetti/radio.git
+cd radio
 cp infra/.env.example infra/.env
 chmod 600 infra/.env
 ```
