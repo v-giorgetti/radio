@@ -1,5 +1,10 @@
 # Radio Placeholder
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-2b59ff?style=flat-square)](LICENSE)
+[![Rust 1.89+](https://img.shields.io/badge/Rust-1.89%2B-000000?style=flat-square&logo=rust&logoColor=white)](server/Cargo.toml)
+[![React 19](https://img.shields.io/badge/React-19-149ECA?style=flat-square&logo=react&logoColor=white)](apps/listener/package.json)
+[![Docker Compose](https://img.shields.io/badge/Docker-Compose-2496ED?style=flat-square&logo=docker&logoColor=white)](infra/README.md)
+
 **Deploy your own web radio. Make it look and sound like your station.**
 
 Radio Placeholder is a self-hosted internet radio application with a Rust backend,
@@ -15,9 +20,32 @@ The application runs in **one Docker container**, including the server, built we
 pages, and FFmpeg. It uses SQLite and a persistent media volume; no external database,
 Icecast installation, or JavaScript application server is required at runtime.
 
-[Quick start](#quick-start-with-docker) · [Features](#features) ·
+[Screenshots](#screenshots) · [Quick start](#quick-start-with-docker) · [Features](#features) ·
 [Customization](#make-it-your-station) · [Deployment guide](infra/README.md) ·
 [Development](#local-development) · [MIT license](LICENSE)
+
+## Screenshots
+
+Captured from the [hosted application](https://radio.giorgettivalentin.fr/?state=live)
+using its built-in demo mode, with sample artwork, track metadata, and simulated
+listener counts. Visit the [example station](https://radio.giorgettivalentin.fr/)
+to see one operator's deployment; customize the branding, music, and programming
+for your own station.
+
+### Public listener
+
+![Desktop listener page with station identity, now-playing artwork and metadata, listener count, and playback controls](docs/screenshots/listener-desktop.png)
+
+<table>
+  <tr>
+    <th>On mobile</th>
+    <th>Local equalizer</th>
+  </tr>
+  <tr>
+    <td width="35%" valign="top"><img src="docs/screenshots/listener-mobile.png" alt="Responsive listener page on a narrow mobile screen" width="300"></td>
+    <td width="65%" valign="top"><img src="docs/screenshots/listener-equalizer.png" alt="Listener equalizer with bass, mids, and treble controls" width="640"></td>
+  </tr>
+</table>
 
 ## Features
 
