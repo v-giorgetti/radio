@@ -1,0 +1,41 @@
+# Station — run with:  docker compose -f infra/compose.yaml up -d --build
+# Caddy (or any reverse proxy) on the host terminates TLS and proxies to 127.0.0.1:${STATION_PORT}.
+name: station
+
+services:
+  station:
+    build:
+      context: ..
+      dockerfile: infra/Dockerfile
+    image: station:latest
+    restart: unless-stopped
+    init: true # forwards signals and reaps ffmpeg child processes
+    # Each listener holds audio + metadata sockets; leave room beyond Docker's
+    # common 1,024 soft limit. The allowance does not reserve files or memory.
+    ulimits:
+      nofile:
+        soft: 65536
+        hard: 65536
+    env_file: .env
+    ports:
+      # Loopback only: the public entry point is the reverse proxy on the host.
+      - "127.0.0.1:${STATION_PORT:-8080}:8080"
+    volumes:
+      # SQLite database, audio library, artwork. Back this up.
+      - station-data:/data
+    read_only: true
+    tmpfs:
+      - /tmp
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    stop_grace_period: 15s
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+volumes:
+  station-data:

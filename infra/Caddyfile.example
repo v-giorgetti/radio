@@ -1,0 +1,7 @@
+# Caddy runs directly on the Docker host in this example.
+# Replace the domain and match the upstream port to STATION_PORT in infra/.env.
+radio.example.com {
+	reverse_proxy 127.0.0.1:8080 {
+		flush_interval -1
+	}
+}

@@ -1,0 +1,10 @@
+# Build context is the repository root; keep it small and free of local state.
+**/node_modules
+**/dist
+server/target
+server/data
+data
+infra/.env
+.git
+**/.DS_Store
+**/*.log

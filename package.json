@@ -1,0 +1,17 @@
+{
+  "name": "station",
+  "private": true,
+  "type": "module",
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "scripts": {
+    "dev": "bun --filter @station/preview dev",
+    "dev:host": "bun --filter @station/host dev",
+    "dev:listener": "bun --filter @station/listener dev",
+    "build": "bun --filter './apps/*' build",
+    "typecheck": "bun --filter '*' typecheck",
+    "test:text-overflow": "bun scripts/test-text-overflow.mjs"
+  }
+}
